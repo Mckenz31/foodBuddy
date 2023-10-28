@@ -58,7 +58,9 @@ class _AddFruits extends State<AddFruits> {
       ));
       return;
     }
-
+    else{
+      Navigator.pop(context);
+    }
   }
 
   @override
@@ -116,7 +118,7 @@ class _AddFruits extends State<AddFruits> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Text(_purchasedDate == null
-                        ? 'Select Date'
+                        ? 'Purchased Date'
                         : formatter.format(_purchasedDate!)),
                     IconButton(
                         onPressed: _purchaseDate,
@@ -130,7 +132,7 @@ class _AddFruits extends State<AddFruits> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Text(_expiredDate == null
-                        ? 'Select Date'
+                        ? 'Expiration Date'
                         : formatter.format(_expiredDate!)),
                     IconButton(
                         onPressed: _expiryDate,

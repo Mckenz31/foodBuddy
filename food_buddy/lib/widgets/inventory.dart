@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_buddy/models/food_items.dart';
-import 'package:food_buddy/widgets/addFruits.dart';
+import 'package:food_buddy/widgets/add_fruits.dart';
+import 'package:food_buddy/widgets/custom_drawer.dart';
 
 class Inventory extends StatefulWidget {
   const Inventory({super.key});
@@ -36,7 +37,7 @@ class _Inventory extends State<Inventory> {
       purchaseDate: DateTime.now(),
       expirationDate: DateTime(
         DateTime.now().year, DateTime.now().month + 1, DateTime.now().day),
-      category: Category.fruits
+      category: Category.fruits,
     ),
   ];  
 
@@ -53,7 +54,16 @@ class _Inventory extends State<Inventory> {
       appBar: AppBar(
         title: const Text('Food Buddy'),
         backgroundColor: Colors.orange,
+        leading: Builder(
+          builder: (BuildContext context) {
+            return IconButton(
+              icon: const Icon(Icons.menu),
+              onPressed: () => Scaffold.of(context).openDrawer(),
+            );
+          },
+        ),
       ),
+      drawer: const CustomDrawer(),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
