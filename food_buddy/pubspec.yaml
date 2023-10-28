@@ -38,6 +38,8 @@ dependencies:
   uuid: ^4.1.0
   intl: ^0.18.1
   font_awesome_flutter: ^10.6.0
+  http: ^1.1.0
+  unsplash_client: ^2.1.1
 
 dev_dependencies:
   flutter_test:
