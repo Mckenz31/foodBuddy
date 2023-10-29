@@ -21,7 +21,9 @@
 ## About
 
 ## Dataset for ML
-https://www.kaggle.com/code/ipekgamzeucal/recipe-recommendation-based-on-ingredients
+Raw dataset - https://www.kaggle.com/code/ipekgamzeucal/recipe-recommendation-based-on-ingredients
+<br>
+Filtered dataset - https://drive.google.com/drive/folders/1jEcOkRDdl2-WQ7KEnXwrv49H_R5Z1Huv?usp=drive_link
 
 
 ## Application Preview
