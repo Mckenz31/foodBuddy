@@ -22,6 +22,11 @@ const RecipePage = () => {
       description: "Description for Card 2",
       instructions: ["Step 1: Mix", "Step 2: Bake", "Step 3: Enjoy"],
     },
+    {
+      title: "Recipe 3",
+      description: "Description for Card 3",
+      instructions: ["Step 1: Mix", "Step 2: Bake", "Step 3: Enjoy"],
+    },
     // Add more card objects as needed
   ];
 
@@ -57,7 +62,12 @@ const RecipePage = () => {
             key={index}
             style={{
               minWidth: "400px",
-              minHeight: expandedCard === index ? "500px" : "200px",
+              height:
+                expandedCard === null
+                  ? "200px"
+                  : expandedCard === index
+                  ? "500px"
+                  : "0px",
               margin: "16px",
               cursor: "pointer",
             }}
