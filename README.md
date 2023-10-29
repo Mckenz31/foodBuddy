@@ -31,12 +31,16 @@ General
 Adding the video
 
 ### 1. Frontend App - Flutter
-
 ### Recipes Home screen
-
-
-### 1. Frontend Web App - React
+![image](images/NovigationSide.png)
+### Recipes Input screen
+![image](images/inputIngriedients.png)
+### Recipes ItemList screen
+![image](images/ItemList.png)
+<br><br>
+### 2. Frontend Web App - React
 ![image](images/homepage.png)
+
 
 ### Recipes Home page
 
