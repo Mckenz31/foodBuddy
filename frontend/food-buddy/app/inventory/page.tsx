@@ -1,14 +1,9 @@
+"use client";
 import React from "react";
 import { TopBar } from "../TopBar";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import Typography from "@mui/material/Typography";
-
-type CardType = {
-  title: string;
-  expirationDate: Date;
-  quantity: number;
-};
+import Section from "./Section";
+import CardItem from "./CardItem";
+import foodbuddy from "../assets/foodbuddy2.jpeg";
 
 const InventoryPage = () => {
   // Sample card data (replace with your actual data)
@@ -52,6 +47,22 @@ const InventoryPage = () => {
       expirationDate: new Date("2023-03-13"),
       quantity: 14,
     },
+    {
+      title: "Broccoli",
+      expirationDate: new Date("2023-11-10"),
+      quantity: 7,
+    },
+    {
+      title: "Celery",
+      expirationDate: new Date("2023-11-23"),
+      quantity: 3,
+    },
+    {
+      title: "Eggplant",
+      expirationDate: new Date("2023-03-13"),
+      quantity: 14,
+    },
+
     // Add more vegetable items as needed
   ];
 
@@ -69,19 +80,65 @@ const InventoryPage = () => {
     // Add more snack items as needed
   ];
 
+  const meat = [
+    {
+      title: "Chicken Breast",
+      expirationDate: new Date("2023-11-02"),
+      quantity: 2,
+    },
+    {
+      title: "Ground Beef",
+      expirationDate: new Date("2023-11-12"),
+      quantity: 3,
+    },
+    // Add more meat items as needed
+  ];
+
+  const dairy = [
+    {
+      title: "Milk",
+      expirationDate: new Date("2023-11-15"),
+      quantity: 4,
+    },
+    {
+      title: "Cheese",
+      expirationDate: new Date("2023-11-25"),
+      quantity: 6,
+    },
+    // Add more dairy items as needed
+  ];
+
+  const grains = [
+    {
+      title: "Rice",
+      expirationDate: new Date("2023-12-05"),
+      quantity: 10,
+    },
+    {
+      title: "Bread",
+      expirationDate: new Date("2023-11-18"),
+      quantity: 2,
+    },
+    // Add more grain items as needed
+  ];
+
   fruits.sort((a, b) => a.expirationDate - b.expirationDate);
   vegetables.sort((a, b) => a.expirationDate - b.expirationDate);
   snacks.sort((a, b) => a.expirationDate - b.expirationDate);
+  meat.sort((a, b) => a.expirationDate - b.expirationDate);
+  dairy.sort((a, b) => a.expirationDate - b.expirationDate);
+  grains.sort((a, b) => a.expirationDate - b.expirationDate);
 
   return (
     <div
       style={{
         display: "flex",
-        flexDirection: "column", // Display sections vertically
+        justifyContent: "center",
         alignItems: "center",
-        justifyContent: "center", // Center horizontally
         minHeight: "100vh",
         backgroundColor: "#f7e2de",
+        backgroundImage: `url(${foodbuddy.src})`,
+        backgroundSize: "cover",
       }}
     >
       <TopBar />
@@ -89,81 +146,23 @@ const InventoryPage = () => {
       <div
         style={{
           display: "flex",
-          maxWidth: "1200px", // Adjust the maximum width as needed
+          maxWidth: "1200px",
         }}
       >
-        <section
-          style={{
-            backgroundColor: "#ffc0cb", // Fruits background color
-            padding: "20px",
-            flex: 1,
-            marginRight: "20px",
-          }}
-        >
-          <Typography variant="h5" color="textPrimary">
-            Fruits
-          </Typography>
-          <ul>
-            {fruits.map((card, index) => (
-              <li key={index}>
-                <CardItem card={card} />
-              </li>
-            ))}
-          </ul>
-        </section>
-        <section
-          style={{
-            backgroundColor: "#90ee90", // Vegetables background color
-            padding: "20px",
-            flex: 1,
-            marginRight: "20px",
-          }}
-        >
-          <Typography variant="h5" color="textPrimary">
-            Vegetables
-          </Typography>
-          <ul>
-            {vegetables.map((card, index) => (
-              <li key={index}>
-                <CardItem card={card} />
-              </li>
-            ))}
-          </ul>
-        </section>
-        <section
-          style={{
-            backgroundColor: "#87ceeb", // Snacks background color
-            padding: "20px",
-            flex: 1,
-          }}
-        >
-          <Typography variant="h5" color="textPrimary">
-            Snacks
-          </Typography>
-          <ul>
-            {snacks.map((card, index) => (
-              <li key={index}>
-                <CardItem card={card} />
-              </li>
-            ))}
-          </ul>
-        </section>
+        <Section title="Fruits" items={fruits} />
+        <div style={{ width: "40px" }}></div> {/* Add a 10px spacer */}
+        <Section title="Vegetables" items={vegetables} />
+        <div style={{ width: "40px" }}></div> {/* Add a 10px spacer */}
+        <Section title="Snacks" items={snacks} />
+        <div style={{ width: "40px" }}></div> {/* Add a 10px spacer */}
+        <Section title="Meat" items={meat} />
+        <div style={{ width: "40px" }}></div> {/* Add a 10px spacer */}
+        <Section title="Dairy" items={dairy} />
+        <div style={{ width: "40px" }}></div> {/* Add a 10px spacer */}
+        <Section title="Grains" items={grains} />
       </div>
     </div>
   );
 };
-const CardItem = ({ card }: { card: CardType }) => (
-  <Card style={{ marginBottom: "10px" }}>
-    <CardContent>
-      <Typography variant="h6">{card.title}</Typography>
-      <Typography variant="body2" color="textSecondary">
-        Quantity: {card.quantity}
-      </Typography>
-      <Typography variant="body2" color="textSecondary">
-        Expiration Date: {card.expirationDate.toLocaleDateString()}
-      </Typography>
-    </CardContent>
-  </Card>
-);
 
 export default InventoryPage;

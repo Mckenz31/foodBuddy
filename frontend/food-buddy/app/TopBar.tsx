@@ -8,8 +8,9 @@ type TopBarProps = {};
 export const TopBar = ({}: TopBarProps) => {
   const buttonStyle = { margin: "0 8px" };
   const StyledButton = styled(Button)`
+    color: white;
     &:hover {
-      background-color: #e3b4ac; // Change this to your desired hover color
+      background-color: #ffbb00; // Change this to your desired hover color
     }
   `;
 
@@ -22,30 +23,25 @@ export const TopBar = ({}: TopBarProps) => {
           left: 0,
           right: 0,
           zIndex: 9999,
-          background: "#e2a89f",
+          backgroundColor: "transparent",
+          boxShadow: "none",
         }}
       >
         <Toolbar sx={{ display: "flex", justifyContent: "center" }}>
           <div>
             <Link href="/">
-              <StyledButton variant="contained" style={buttonStyle}>
-                Home
-              </StyledButton>
+              <StyledButton style={buttonStyle}>Home</StyledButton>
             </Link>
             <Link href="/inventory">
-              <StyledButton variant="contained" style={buttonStyle}>
-                Inventory
-              </StyledButton>
+              <StyledButton style={buttonStyle}>Inventory</StyledButton>
             </Link>
             <Link href="/ingredients">
-              <StyledButton variant="contained" style={buttonStyle}>
+              <StyledButton style={buttonStyle}>
                 Add new ingredients
               </StyledButton>
             </Link>
             <Link href="/recipes">
-              <StyledButton variant="contained" style={buttonStyle}>
-                Recipes
-              </StyledButton>
+              <StyledButton style={buttonStyle}>Recipes</StyledButton>
             </Link>
           </div>
         </Toolbar>

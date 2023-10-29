@@ -3,10 +3,11 @@ import React, { useState, ChangeEvent, FormEvent } from "react";
 import { TopBar } from "../TopBar";
 import { styled } from "@mui/system";
 import { Typography, Button, Alert } from "@mui/material";
+import foodbuddy from "../assets/foodbuddy2.jpeg";
 
 const StyledButton = styled(Button)`
   &:hover {
-    background-color: #fceeeb; // Change this to your desired hover color
+    background-color: #ffbb00; // Change this to your desired hover color
   }
 `;
 
@@ -99,17 +100,19 @@ const IngredientPage = () => {
     <div
       style={{
         display: "flex",
-        alignItems: "center",
         justifyContent: "center",
-        height: "100vh",
+        alignItems: "center",
+        minHeight: "100vh",
         backgroundColor: "#f7e2de",
+        backgroundImage: `url(${foodbuddy.src})`,
+        backgroundSize: "cover",
       }}
     >
       <TopBar />
       <form>
         <div style={{ marginBottom: "10px" }}>
           <label htmlFor="title" style={labelStyle}>
-            <Typography color="black">Food Item:</Typography>
+            <Typography color="white">Food Item:</Typography>
           </label>
           <input
             type="text"
@@ -123,7 +126,7 @@ const IngredientPage = () => {
         </div>
         <div style={{ marginBottom: "10px" }}>
           <label htmlFor="expirationDate" style={labelStyle}>
-            <Typography color="black">Expiration Date:</Typography>
+            <Typography color="white">Expiration Date:</Typography>
           </label>
           <input
             type="date"
@@ -136,7 +139,7 @@ const IngredientPage = () => {
         </div>
         <div style={{ marginBottom: "10px" }}>
           <label htmlFor="quantity" style={labelStyle}>
-            <Typography color="black">Quantity:</Typography>
+            <Typography color="white">Quantity:</Typography>
           </label>
           <input
             type="number"
@@ -150,7 +153,7 @@ const IngredientPage = () => {
         </div>
         <div style={{ marginBottom: "10px" }}>
           <label htmlFor="foodType" style={labelStyle}>
-            <Typography color="black">Food Type:</Typography>
+            <Typography color="white">Food Type:</Typography>
           </label>
           <select
             id="foodType"
@@ -162,14 +165,13 @@ const IngredientPage = () => {
             <option value="fruit">Fruit</option>
             <option value="vegetable">Vegetable</option>
             <option value="snack">Snack</option>
+            <option value="meat">Meat</option>
+            <option value="dairy">Dairy</option>
+            <option value="grains">Grains</option>
           </select>
         </div>
-        <StyledButton
-          onClick={handleSubmit}
-          variant="contained"
-          style={{ width: "100%" }}
-        >
-          <Typography color="black">Submit</Typography>
+        <StyledButton onClick={handleSubmit} style={{ width: "100%" }}>
+          <Typography color="white">Submit</Typography>
         </StyledButton>
       </form>
 
