@@ -36,6 +36,7 @@ Adding the video
 
 
 ### 1. Frontend Web App - React
+![image](images/homepage.png)
 
 ### Recipes Home page
 
