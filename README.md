@@ -20,6 +20,8 @@
 
 ## About
 
+## Dataset for ML
+https://www.kaggle.com/code/ipekgamzeucal/recipe-recommendation-based-on-ingredients
 
 
 ## Application Preview
