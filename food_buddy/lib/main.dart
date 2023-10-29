@@ -12,7 +12,7 @@ void main() {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.orangeAccent),
         useMaterial3: true,
       ),
-      home: const Recipe(),
+      home: const Inventory(),
     ),
   );
 }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:food_buddy/models/food_items.dart';
 import 'package:food_buddy/widgets/add_fruits.dart';
 import 'package:food_buddy/widgets/custom_drawer.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Inventory extends StatefulWidget {
   const Inventory({super.key});
@@ -62,141 +63,173 @@ class _Inventory extends State<Inventory> {
       ),
       drawer: const CustomDrawer(),
       body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            //Fruits
-            Row(
-              children: [
-                const Padding(
-                  padding: EdgeInsets.all(16.0),
-                  child: Text(
-                    'Fruits',
-                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-                  ),
-                ),
-                const Spacer(),
-                IconButton(
-                    onPressed: () {
-                      _showModel();
-                    },
-                    icon: const Icon(Icons.add))
-              ],
+        child: Container(
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage("assets/inventory.jpg"),
+              fit: BoxFit.cover,
             ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height / 4,
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount:
-                    fruitsList.length, // Number of items in the horizontal list
-                itemBuilder: (context, index) {
-                  return SizedBox(
-                    width: MediaQuery.of(context).size.width / 3, // Card width
-                    child: Card(
-                      elevation: 4.0,
-                      margin: const EdgeInsets.all(8.0),
-                      child: Padding(
-                        padding: const EdgeInsets.all(16.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisSize: MainAxisSize.min,
-                          children: <Widget>[
-                            Text(
-                              fruitsList[index].product,
-                              style: const TextStyle(
-                                fontSize: 18.0,
-                                fontWeight: FontWeight.bold,
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              //Fruits
+              Row(
+                children: [
+                  const Padding(
+                    padding: EdgeInsets.all(16.0),
+                    child: Text(
+                      'Fruits',
+                      style:
+                          TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                  const Spacer(),
+                  IconButton(
+                      onPressed: () {
+                        _showModel();
+                      },
+                      icon: const Icon(Icons.add))
+                ],
+              ),
+              SizedBox(
+                height: MediaQuery.of(context).size.height / 5,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: fruitsList
+                      .length, // Number of items in the horizontal list
+                  itemBuilder: (context, index) {
+                    return SizedBox(
+                      width:
+                          MediaQuery.of(context).size.width / 3, // Card width
+                      child: Card(
+                        color: Color(0x80FF9800),
+                        // elevation: 4.0,
+                        margin: const EdgeInsets.all(8.0),
+                        child: Padding(
+                          padding: const EdgeInsets.all(16.0),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisSize: MainAxisSize.min,
+                            children: <Widget>[
+                              Text(
+                                fruitsList[index].product,
+                                style: GoogleFonts.lato(
+                                  textStyle: const TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.w900),
+                                ),
                               ),
-                            ),
-                            // Container(
-                            //   width: 150,
-                            //   height: 100,
-                            //   decoration: const BoxDecoration(
-                            //     color: Colors.pink,
-                            //     image: DecorationImage(
-                            //       image: AssetImage("assets/banana1.jpg"),
-                            //       fit: BoxFit
-                            //           .cover, // You can use BoxFit.fitWidth, BoxFit.contain, etc. as per your requirement
-                            //     ),
-                            //   ),
-                            // ),
-
-                            const SizedBox(height: 8.0),
-                            Text(fruitsList[index].amount.toString()),
-                            const SizedBox(height: 4.0),
-                            Text(formatter
-                                .format(fruitsList[index].expirationDate)),
-                          ],
+                              
+                              const Spacer(),
+                              Text("Quantity", style: GoogleFonts.lato(
+                                  textStyle: const TextStyle(
+                                      color: Colors.white, fontSize: 15),
+                                ),),
+                              Text(
+                                fruitsList[index].amount.toString(),
+                                style: GoogleFonts.lato(
+                                  textStyle: const TextStyle(
+                                      color: Colors.white, fontSize: 15),
+                                ),
+                              ),
+                              const SizedBox(height: 4.0),
+                              Text("Expires by", style: GoogleFonts.lato(
+                                  textStyle: const TextStyle(
+                                      color: Colors.white, fontSize: 15),
+                                ),),
+                              Text(formatter
+                                  .format(fruitsList[index].expirationDate), style: GoogleFonts.lato(
+                                  textStyle: const TextStyle(
+                                      color: Colors.white, fontSize: 15),
+                                ),),
+                            ],
+                          ),
                         ),
                       ),
-                    ),
-                  );
-                },
-              ),
-            ),
-
-            Row(
-              children: [
-                const Padding(
-                  padding: EdgeInsets.all(16.0),
-                  child: Text(
-                    'Vegetables',
-                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-                  ),
+                    );
+                  },
                 ),
-                const Spacer(),
-                IconButton(onPressed: () {}, icon: const Icon(Icons.add))
-              ],
-            ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height / 4,
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: 10, // Number of items in the horizontal list
-                itemBuilder: (context, index) {
-                  return SizedBox(
-                    width: MediaQuery.of(context).size.width / 3, // Card width
-                    child: Card(
-                      child: Center(
-                        child: Text('Card ${index + 1}'),
-                      ),
-                    ),
-                  );
-                },
               ),
-            ),
 
-            Row(
-              children: [
-                const Padding(
-                  padding: EdgeInsets.all(16.0),
-                  child: Text(
-                    'Snacks',
-                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-                  ),
-                ),
-                const Spacer(),
-                IconButton(onPressed: () {}, icon: const Icon(Icons.add))
-              ],
-            ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height / 4,
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: 10, // Number of items in the horizontal list
-                itemBuilder: (context, index) {
-                  return SizedBox(
-                    width: MediaQuery.of(context).size.width / 3, // Card width
-                    child: Card(
-                      child: Center(
-                        child: Text('Card ${index + 1}'),
-                      ),
+
+              //2nd
+              Row(
+                children: [
+                  const Padding(
+                    padding: EdgeInsets.all(16.0),
+                    child: Text(
+                      'Vegetables',
+                      style:
+                          TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                     ),
-                  );
-                },
+                  ),
+                  const Spacer(),
+                  IconButton(onPressed: () {}, icon: const Icon(Icons.add))
+                ],
               ),
-            ),
-          ],
+              SizedBox(
+                height: MediaQuery.of(context).size.height / 5,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: 10, // Number of items in the horizontal list
+                  itemBuilder: (context, index) {
+                    return SizedBox(
+                      width:
+                          MediaQuery.of(context).size.width / 3, // Card width
+                      child: Card(
+                        color: const Color(0x80FF9800),
+                        margin: const EdgeInsets.all(8.0),
+                        child: Padding(
+                          padding: const EdgeInsets.all(16.0),
+                          child: Column(
+                            children: [
+                              Text(index.toString())
+                            ],
+                          ),
+                        ),
+                      ),
+                    );
+                  },
+                ),
+              ),
+
+              Row(
+                children: [
+                  const Padding(
+                    padding: EdgeInsets.all(16.0),
+                    child: Text(
+                      'Snacks',
+                      style:
+                          TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                  const Spacer(),
+                  IconButton(onPressed: () {}, icon: const Icon(Icons.add))
+                ],
+              ),
+              SizedBox(
+                height: MediaQuery.of(context).size.height / 4,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: 10, // Number of items in the horizontal list
+                  itemBuilder: (context, index) {
+                    return SizedBox(
+                      width:
+                          MediaQuery.of(context).size.width / 3, // Card width
+                      child: Card(
+                        color: Color(0x80FF9800),
+                        child: Center(
+                          child: Text('Card ${index + 1}'),
+                        ),
+                      ),
+                    );
+                  },
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

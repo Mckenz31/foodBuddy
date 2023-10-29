@@ -20,7 +20,7 @@ class CustomDrawer extends StatelessWidget {
           ),
           ListTile(
               leading: const Icon(Icons.inventory),
-              title: const Text('Inventory'),
+              title: const Text('Pantry'),
               onTap: () {
                 Navigator.of(context).push(
                   MaterialPageRoute(
@@ -30,7 +30,7 @@ class CustomDrawer extends StatelessWidget {
               }),
           ListTile(
             leading: const Icon(Icons.list),
-            title: const Text('Recipes'),
+            title: const Text('Cookbook'),
             onTap: (){
               Navigator.of(context).push(
                   MaterialPageRoute(
