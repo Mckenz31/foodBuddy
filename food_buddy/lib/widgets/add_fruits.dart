@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import '../models/food_items.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 class AddFruits extends StatefulWidget {
   const AddFruits({super.key});
@@ -11,23 +13,35 @@ class AddFruits extends StatefulWidget {
 }
 
 class _AddFruits extends State<AddFruits> {
+
+  final apiUrl = "https://jsonplaceholder.typicode.com/posts";
   final _productInput = TextEditingController();
   final _quantityInput = TextEditingController();
-  DateTime? _purchasedDate;
   DateTime? _expiredDate;
-  Category _categoryVal = Category.fruits;
+  final _categoryVal = Category.fruits;
 
-  void _purchaseDate() async {
-    final current = DateTime.now();
-    final initial = DateTime(current.year - 1, current.month, current.day);
-    final pickedDate = await showDatePicker(
-        context: context,
-        initialDate: current,
-        firstDate: initial,
-        lastDate: current);
-    setState(() {
-      _purchasedDate = pickedDate;
-    });
+  final yourSnackBarSuccess = const SnackBar(content: Text('Post created sucessfully.'));
+  final yourSnackBarFailure = const SnackBar(content: Text('Post creation failed.'));
+
+
+  Future<void> sendPostRequest() async {
+    var response = await http.post(Uri.parse(apiUrl),
+        headers: {"Content-Type": "application/json"},
+        body: jsonEncode({
+          "product": _productInput.text,
+          "quantity": _quantityInput.text,
+          "expiration": _expiredDate,
+          "category": _categoryVal
+        }));
+
+    if (response.statusCode == 201) {
+      ScaffoldMessenger.of(context).showSnackBar(yourSnackBarSuccess);
+      print("Success");
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(yourSnackBarFailure);
+      print("Failure");
+
+    }
   }
 
   void _expiryDate() async {
@@ -46,7 +60,7 @@ class _AddFruits extends State<AddFruits> {
   void _onSubmit(){
 
     final doubleAmount = double.tryParse(_quantityInput.text);
-    if(_productInput.text.trim().isEmpty || _purchasedDate == null || _expiredDate == null){
+    if(_productInput.text.trim().isEmpty || doubleAmount == null || _expiredDate == null){
       showDialog(context: context, builder: (ctx) => AlertDialog(
         title: const Text('Invalid information'),
         content: const Text('Kindly enter a valid name, quantity, purchase date, and expiration date'),
@@ -59,6 +73,7 @@ class _AddFruits extends State<AddFruits> {
       return;
     }
     else{
+      sendPostRequest;
       Navigator.pop(context);
     }
   }
@@ -111,20 +126,6 @@ class _AddFruits extends State<AddFruits> {
             children: [
               const SizedBox(
                 width: 15,
-              ),
-              Expanded(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Text(_purchasedDate == null
-                        ? 'Purchased Date'
-                        : formatter.format(_purchasedDate!)),
-                    IconButton(
-                        onPressed: _purchaseDate,
-                        icon: const Icon(Icons.calendar_month)),
-                  ],
-                ),
               ),
               Expanded(
                 child: Row(
