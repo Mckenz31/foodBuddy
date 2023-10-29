@@ -13,33 +13,30 @@ class Inventory extends StatefulWidget {
 }
 
 class _Inventory extends State<Inventory> {
+  final image =
+      'https://images.unsplash.com/photo-1682686581362-796145f0e123?auto=format&fit=crop&q=60&w=500&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHx8';
 
   final List<FoodItems> fruitsList = [
     FoodItems(
-      product: 'Apple',
-      amount: 3,
-      purchaseDate: DateTime.now(),
-      expirationDate: DateTime(
-        DateTime.now().year, DateTime.now().month + 1, DateTime.now().day),
-      category: Category.fruits
-    ),
+        product: 'Apple',
+        amount: 3,
+        expirationDate: DateTime(
+            DateTime.now().year, DateTime.now().month + 1, DateTime.now().day),
+        category: Category.fruits),
     FoodItems(
-      product: 'Mango',
-      amount: 2,
-      purchaseDate: DateTime.now(),
-      expirationDate: DateTime(
-        DateTime.now().year, DateTime.now().month + 1, DateTime.now().day),
-      category: Category.fruits
-    ),
+        product: 'Mango',
+        amount: 2,
+        expirationDate: DateTime(
+            DateTime.now().year, DateTime.now().month + 1, DateTime.now().day),
+        category: Category.fruits),
     FoodItems(
       product: 'Banana',
       amount: 5,
-      purchaseDate: DateTime.now(),
       expirationDate: DateTime(
-        DateTime.now().year, DateTime.now().month + 1, DateTime.now().day),
+          DateTime.now().year, DateTime.now().month + 1, DateTime.now().day),
       category: Category.fruits,
     ),
-  ];  
+  ];
 
   void _showModel() {
     showModalBottomSheet(
@@ -68,7 +65,6 @@ class _Inventory extends State<Inventory> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-
             //Fruits
             Row(
               children: [
@@ -80,16 +76,19 @@ class _Inventory extends State<Inventory> {
                   ),
                 ),
                 const Spacer(),
-                IconButton(onPressed: (){
-                  _showModel();
-                }, icon: const Icon(Icons.add))
+                IconButton(
+                    onPressed: () {
+                      _showModel();
+                    },
+                    icon: const Icon(Icons.add))
               ],
             ),
             SizedBox(
               height: MediaQuery.of(context).size.height / 4,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
-                itemCount: fruitsList.length, // Number of items in the horizontal list
+                itemCount:
+                    fruitsList.length, // Number of items in the horizontal list
                 itemBuilder: (context, index) {
                   return SizedBox(
                     width: MediaQuery.of(context).size.width / 3, // Card width
@@ -109,12 +108,24 @@ class _Inventory extends State<Inventory> {
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
+                            // Container(
+                            //   width: 150,
+                            //   height: 100,
+                            //   decoration: const BoxDecoration(
+                            //     color: Colors.pink,
+                            //     image: DecorationImage(
+                            //       image: AssetImage("assets/banana1.jpg"),
+                            //       fit: BoxFit
+                            //           .cover, // You can use BoxFit.fitWidth, BoxFit.contain, etc. as per your requirement
+                            //     ),
+                            //   ),
+                            // ),
+
                             const SizedBox(height: 8.0),
                             Text(fruitsList[index].amount.toString()),
                             const SizedBox(height: 4.0),
-                            Text(formatter.format(fruitsList[index].purchaseDate)),
-                            const SizedBox(height: 4.0),
-                            Text(formatter.format(fruitsList[index].expirationDate)),
+                            Text(formatter
+                                .format(fruitsList[index].expirationDate)),
                           ],
                         ),
                       ),
@@ -123,9 +134,7 @@ class _Inventory extends State<Inventory> {
                 },
               ),
             ),
-      
-      
-      
+
             Row(
               children: [
                 const Padding(
@@ -136,7 +145,7 @@ class _Inventory extends State<Inventory> {
                   ),
                 ),
                 const Spacer(),
-                IconButton(onPressed: (){}, icon: const Icon(Icons.add))
+                IconButton(onPressed: () {}, icon: const Icon(Icons.add))
               ],
             ),
             SizedBox(
@@ -156,10 +165,7 @@ class _Inventory extends State<Inventory> {
                 },
               ),
             ),
-      
-      
-      
-      
+
             Row(
               children: [
                 const Padding(
@@ -170,7 +176,7 @@ class _Inventory extends State<Inventory> {
                   ),
                 ),
                 const Spacer(),
-                IconButton(onPressed: (){}, icon: const Icon(Icons.add))
+                IconButton(onPressed: () {}, icon: const Icon(Icons.add))
               ],
             ),
             SizedBox(

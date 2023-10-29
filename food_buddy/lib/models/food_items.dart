@@ -15,21 +15,17 @@ enum Category {fruits, vegetables, snacks, meats, spices, dairy, grains, others}
 
 class FoodItems{
 
-  FoodItems({required this.product, required this.amount, required this.purchaseDate, required this.expirationDate, required this.category}): id = uuid.v4();
+  FoodItems({required this.product, required this.amount, required this.expirationDate, required this.category}): id = uuid.v4();
 
   final String id;
   final String product;
   final double amount;
-  final DateTime purchaseDate;
   final DateTime expirationDate;
   final Category category;
 
-  String get formattedPurchaseDate{
-    return formatter.format(purchaseDate);
-  }
 
   String get formattedExpiryDate{
-    return formatter.format(purchaseDate);
+    return formatter.format(expirationDate);
   }
 
   DateTime get currentDate{

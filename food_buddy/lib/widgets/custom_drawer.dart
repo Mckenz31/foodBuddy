@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_buddy/widgets/inventory.dart';
+import 'package:food_buddy/widgets/recipe.dart';
 
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({super.key});
@@ -27,9 +28,16 @@ class CustomDrawer extends StatelessWidget {
                   ),
                 );
               }),
-          const ListTile(
-            leading: Icon(Icons.list),
-            title: Text('Recipes'),
+          ListTile(
+            leading: const Icon(Icons.list),
+            title: const Text('Recipes'),
+            onTap: (){
+              Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => const Recipe(),
+                  ),
+                );
+            },
           ),
           // ListTile(
           //   leading: Icon(Icons.settings),
