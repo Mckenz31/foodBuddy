@@ -1,6 +1,6 @@
 # Food Buddy
 
-![git](https://img.shields.io/badge/any_text-you_like-blue)
+![git](https://img.shields.io/badge/Hi-FoodBuddies)
 
 ---
 
@@ -40,7 +40,7 @@ Adding the video
 <br><br>
 ### 2. Frontend Web App - React
 ![image](images/homepage.png)
-https://github.com/Steven-Tio/food
+React web app - https://github.com/Steven-Tio/food
 
 ### Recipes Home page
 
@@ -79,8 +79,14 @@ pip install -r requirements.txt
 
 Step 3: Setting up the Frontend 
 ```
-cd foodBuddyFrontend
+pip install -r requirements.txt
 
+
+```
+
+Step 4: Setting up the Flutter
+```
+pip install -r requirements.txt
 ```
 
 ### Running the Application
@@ -94,7 +100,12 @@ python manage.py runserver
 
 Step 2: (Frontend)
 ```
+(React)
+cd foodBuddyFrontend
+npm run dev
 
+(Flutter)
+flutter run
 ```
 
 
@@ -119,5 +130,5 @@ Further details regarding the license can be found [here](https://github.com/Mck
 
 - [Mohit Soni](https://github.com/mohitsoni2111)
 - [Mckenzie](https://github.com/Mckenz31)
-- [Rucha Patil](https://github.com/ruchapatil)
-- [Stephen](https://github.com/stephan)
+- [Rucha Patil](https://github.com/RuePat)
+- [Stephen](https://github.com/Steven-Tio)
