@@ -4,6 +4,8 @@ import 'package:food_buddy/recipe_data.dart';
 import 'package:food_buddy/widgets/custom_drawer.dart';
 import 'package:food_buddy/widgets/recipe_cooking.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 class Recipe extends StatefulWidget {
   const Recipe({super.key});
@@ -15,6 +17,20 @@ class Recipe extends StatefulWidget {
 }
 
 class _Recipe extends State<Recipe> {
+
+  String apiUrl = "";
+
+  Future<void> fetchGetData() async {
+  var response = await http.get(Uri.parse(apiUrl),
+      headers: {"Content-Type": "application/json"});
+
+  if (response.statusCode == 200) {
+    var data = jsonDecode(response.body);
+    print(data);
+  } else {
+    throw Exception('Failed to load data');
+  }
+}
 
   @override
   Widget build(BuildContext context) {

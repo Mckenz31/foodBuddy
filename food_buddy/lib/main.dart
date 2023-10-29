@@ -14,7 +14,7 @@ void main() {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.orangeAccent),
         useMaterial3: true,
       ),
-      home: const OnBoarding(),
+      home: OnBoarding(),
     ),
   );
 }

@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:food_buddy/widgets/inventory.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -8,11 +11,29 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
-  final _formKey = GlobalKey<FormState>();
+  String apiUrl = "";
   var _isLogin = true;
 
   var _enteredEmail = '';
   var _enteredPass = '';
+
+  Future<void> sendPostRequest() async {
+    var response = await http.post(Uri.parse(apiUrl),
+        headers: {"Content-Type": "application/json"},
+        body: jsonEncode({"email": _enteredEmail, "password": _enteredPass}));
+
+    const yourSnackBarSuccess =
+        SnackBar(content: Text('API created sucessfully.'));
+    const yourSnackBarFailure = SnackBar(content: Text('API creation failed.'));
+
+    if (response.statusCode == 201) {
+      ScaffoldMessenger.of(context).showSnackBar(yourSnackBarSuccess);
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(yourSnackBarFailure);
+    }
+  }
+
+  final _formKey = GlobalKey<FormState>();
 
   void _submit() async {
     final isValid = _formKey.currentState!.validate();
@@ -22,6 +43,11 @@ class _LoginState extends State<Login> {
     }
 
     _formKey.currentState!.save();
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => const Inventory(),
+      ),
+    );
   }
 
   @override

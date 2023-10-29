@@ -40,9 +40,9 @@ class RecipeData {
           'if desired , season with salt'
         ],
         sodium: 7,
-        minutes: 40,
+        minutes: 25,
         ratings: 4.6,
-        calories: 153,
+        calories: 151,
         totalFat: 34,
         sugar: 91.2,
         protein: 27.7,
@@ -50,7 +50,7 @@ class RecipeData {
         carbohydrates: 45.2),
     RecipeContent(
         recipeName: 'Frankie',
-        ingredients: ['Bun', 'Donkey', 'Tomato', 'Cabbage', 'Onions'],
+        ingredients: ['Tortia', 'Chicken', 'Tomato', 'Pickles', 'Onions'],
         instructions: [
           'brown ground beef in large pot',
           'add chopped onions to ground beef when almost brown and sautee until wilted',
@@ -60,9 +60,9 @@ class RecipeData {
           'serve with cold clean lettuce and shredded cheese'
         ],
         sodium: 5,
-        minutes: 20,
+        minutes: 75,
         ratings: 4.2,
-        calories: 173,
+        calories: 240,
         totalFat: 3.2,
         sugar: 77.2,
         protein: 18.4,
@@ -72,12 +72,13 @@ class RecipeData {
         recipeName: 'Brelllalan',
         ingredients: [
           'Bun',
-          'Evil Unicorn',
+          'Corn',
           'Fish',
-          'Cabbage',
+          'Beans',
           'Onions',
           'Avacadoes',
-          'Pineapple'
+          'Pineapple',
+          'Tortia'
         ],
         instructions: [
           'make a choice and proceed with recipe',
@@ -95,12 +96,40 @@ class RecipeData {
         sodium: 7,
         minutes: 40,
         ratings: 4.6,
-        calories: 153,
+        calories: 305,
         totalFat: 34,
         sugar: 91.2,
         protein: 27.7,
         saturatedFats: 103.9,
         carbohydrates: 45.2),
+    RecipeContent(
+        recipeName: 'bananas 4 ice cream  pie',
+        ingredients: [
+          'chocolate syrup',
+          'vanilla ice cream',
+          'bananas',
+          'strawberry ice cream',
+          'whipped cream'
+        ],
+        instructions: [
+          'crumble cookies into a 9-inch pie plate , or cake pan',
+          'pat down to form an even layer',
+          'drizzle 1 cup of chocolate topping evenly over the cookies with a small spoon',
+          'scoop the vanilla ice cream on top of the chocolate and smooth down',
+          'cover with half of the sliced bananas',
+          'top with strawberry ice cream',
+          'cover and freeze until firm',
+          'before serving , top with 1 / 4 cup chocolate topping , whipped cream , and sliced bananas'
+        ],
+        sodium: 15,
+        minutes: 26,
+        ratings: 3.3,
+        calories: 145,
+        totalFat: 99.8,
+        sugar: 71,
+        protein: 27.1,
+        saturatedFats: 34.9,
+        carbohydrates: 51),
   ];
 
   String ingredients(index) {
@@ -119,15 +148,16 @@ class RecipeData {
   }
 
   String instructions(index) {
-    String instruction= "STEPS => 1: ";
+    String instruction = "STEPS => 1: ";
     for (int i = 0;
         i < RecipeData().recipeList[index].instructions.length;
         i++) {
       if (i == 0) {
-        instruction = instruction + RecipeData().recipeList[index].instructions[i];
+        instruction =
+            instruction + RecipeData().recipeList[index].instructions[i];
       } else {
         instruction =
-            '$instruction. ${i+2}: ${RecipeData().recipeList[index].instructions[i]}';
+            '$instruction. ${i + 2}: ${RecipeData().recipeList[index].instructions[i]}';
       }
     }
     return instruction;

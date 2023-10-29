@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_buddy/widgets/inventory.dart';
+import 'package:food_buddy/widgets/login.dart';
 import 'package:food_buddy/widgets/recipe.dart';
 
 class CustomDrawer extends StatelessWidget {
@@ -12,7 +13,7 @@ class CustomDrawer extends StatelessWidget {
         children: <Widget>[
           const UserAccountsDrawerHeader(
             accountName: Text('Mckenzie Lionel Joseph Prince'),
-            accountEmail: Text('mckenzie@unc.edu'),
+            accountEmail: Text('mckenzie@xyz.com'),
             currentAccountPicture: CircleAvatar(
               backgroundColor: Colors.grey,
               child: Text('ML', style: TextStyle(fontSize: 40)),
@@ -47,9 +48,16 @@ class CustomDrawer extends StatelessWidget {
             leading: Icon(Icons.help),
             title: Text('Help'),
           ),
-          const ListTile(
-            leading: Icon(Icons.exit_to_app),
-            title: Text('Log Out'),
+          ListTile(
+            leading: const Icon(Icons.exit_to_app),
+            title: const Text('Log Out'),
+            onTap: (){
+              Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => const Login(),
+                  ),
+                );
+            },
           ),
           const Expanded(
             child: Align(
