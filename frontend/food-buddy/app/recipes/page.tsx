@@ -25,9 +25,9 @@ const RecipePage = () => {
     // Add more card objects as needed
   ];
 
-  const [expandedCard, setExpandedCard] = useState(null);
+  const [expandedCard, setExpandedCard] = useState<number | null>(null);
 
-  const handleCardClick = (index) => {
+  const handleCardClick = (index: number) => {
     setExpandedCard(expandedCard === index ? null : index);
   };
 
@@ -35,7 +35,7 @@ const RecipePage = () => {
     <div
       style={{
         display: "flex",
-        justifyContent: "center",
+        flexDirection: "column",
         alignItems: "center",
         minHeight: "100vh",
         backgroundColor: "#f7e2de",
@@ -44,14 +44,21 @@ const RecipePage = () => {
       }}
     >
       <TopBar />
-      <div style={{ marginTop: "64px" }}>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "center",
+          marginTop: "64px",
+        }}
+      >
         {cardsData.map((card, index) => (
           <Card
             key={index}
             style={{
               minWidth: "400px",
               minHeight: expandedCard === index ? "500px" : "200px",
-              marginBottom: "16px",
+              margin: "16px",
               cursor: "pointer",
             }}
             onClick={() => handleCardClick(index)}

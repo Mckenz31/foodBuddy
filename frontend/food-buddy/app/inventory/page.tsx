@@ -133,8 +133,8 @@ const InventoryPage = () => {
     <div
       style={{
         display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
+        flexDirection: "column", // Ensure sections stack vertically
+        alignItems: "center", // Center horizontally
         minHeight: "100vh",
         backgroundColor: "#f7e2de",
         backgroundImage: `url(${foodbuddy.src})`,
@@ -142,23 +142,19 @@ const InventoryPage = () => {
       }}
     >
       <TopBar />
-
       <div
         style={{
           display: "flex",
-          maxWidth: "1200px",
+          flexWrap: "wrap", // Allow sections to wrap to the next row
+          justifyContent: "center", // Center sections horizontally
+          gap: "10px", // Add 10px gap between sections
         }}
       >
         <Section title="Fruits" items={fruits} />
-        <div style={{ width: "40px" }}></div> {/* Add a 10px spacer */}
         <Section title="Vegetables" items={vegetables} />
-        <div style={{ width: "40px" }}></div> {/* Add a 10px spacer */}
         <Section title="Snacks" items={snacks} />
-        <div style={{ width: "40px" }}></div> {/* Add a 10px spacer */}
         <Section title="Meat" items={meat} />
-        <div style={{ width: "40px" }}></div> {/* Add a 10px spacer */}
         <Section title="Dairy" items={dairy} />
-        <div style={{ width: "40px" }}></div> {/* Add a 10px spacer */}
         <Section title="Grains" items={grains} />
       </div>
     </div>

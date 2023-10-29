@@ -17,7 +17,7 @@ const CardItem: React.FC<CardItemProps> = ({ card }) => {
 
   const cardStyle = {
     backgroundColor: isHovered ? "#ffbb00" : "white",
-    padding: "10px",
+    padding: "20px 60px 20px 40px",
     margin: "10px",
     transition: "background-color 0.3s", // Add a transition for smooth color change
     cursor: "pointer",

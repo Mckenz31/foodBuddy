@@ -19,14 +19,33 @@ const Page = () => {
       <div style={{}}>
         <TopBar />
 
-        <Typography
-          variant="h1"
+        <div
           style={{
-            fontFamily: "Bebas Neue, sans-serif",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            minHeight: "100vh",
           }}
         >
-          This is Food Buddy!
-        </Typography>
+          <Typography
+            variant="h1"
+            style={{
+              fontFamily: "Bebas Neue, sans-serif",
+            }}
+          >
+            This is Food Buddy!
+          </Typography>
+          <Typography
+            variant="h4"
+            style={{
+              color: "#ffbb00",
+              fontFamily: "Bebas Neue, sans-serif",
+            }}
+          >
+            Where flavor meets friendship!
+          </Typography>
+        </div>
       </div>
       <link
         href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"

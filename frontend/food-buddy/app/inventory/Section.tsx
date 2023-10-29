@@ -17,8 +17,9 @@ const Section: React.FC<SectionProps> = ({ title, items }) => {
   const sectionStyle: React.CSSProperties = {
     backgroundColor: "rgba(0, 0, 0, 0.5)", // Set the background color with opacity
     flex: 1,
-    marginRight: "10px",
-    maxHeight: "800px", // Set the maximum height to show up to 5 cards
+    marginRight: "20px",
+    maxWidth: "230px",
+    maxHeight: "790px", // Set the maximum height to show up to 5 cards
     overflowY: "auto", // Enable vertical scrolling if the content exceeds maxHeight
     borderRadius: "10px",
   };
