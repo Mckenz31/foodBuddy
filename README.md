@@ -134,4 +134,4 @@ Further details regarding the license can be found [here](https://github.com/Mck
 - [Mohit Soni](https://github.com/mohitsoni2111)
 - [Mckenzie](https://github.com/Mckenz31)
 - [Rucha Patil](https://github.com/RuePat)
-- [Stephen](https://github.com/Steven-Tio)
+- [Steven Tio](https://github.com/Steven-Tio)
