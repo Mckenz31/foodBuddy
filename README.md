@@ -30,7 +30,9 @@ Filtered dataset - https://drive.google.com/drive/folders/1jEcOkRDdl2-WQ7KEnXwrv
 General
 
 ### Demonstration Video
-Adding the video
+https://github.com/Mckenz31/foodBuddy/assets/101958689/d711ff4b-7c40-459d-9c7d-eeba5e0787f1
+
+
 
 ### 1. Frontend App - Flutter
 ### Recipes Home screen
@@ -42,7 +44,6 @@ Adding the video
 <br><br>
 ### 2. Frontend Web App - React
 ![image](images/homepage.png)
-React web app - https://github.com/Steven-Tio/food
 
 ### Recipes Home page
 
